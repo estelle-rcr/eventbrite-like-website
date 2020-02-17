@@ -1,0 +1,29 @@
+<container class="container-fluid d-flex justify-content-center row mb-0 pb-0">
+  <% if flash[:success] %>
+    <p class="container alert alert-success d-flex justify-content-center col-12 mb-0 mr-0" role="alert"><%= flash[:success] %></p>
+  <% elsif flash[:danger] %>
+    <p class="container alert alert-danger d-flex justify-content-center col-12 mb-0 mr-0" role="alert"><%= flash[:danger] %></p>
+  <% end %>
+</container>
+
+<div class="jumbotron jumbotron-fluid">
+@<div class="container text-center">
+    <h1 class="display-5 text-light mt-4 mb-4">Partez à l'aventure</h1>
+    <p class="lead text-light">Découvrez notre école de surf en peer-learning</p>
+    <button type ="button" class="btn btn-primary my-2 my-sm-0">Je m'inscris à la prochaine session</button>
+    <button type="button" class="btn btn-secondary">Je découvre le programme</button>
+  </div>
+</div>
+
+
+ <section class="container mt-4 mb-4">
+      <h4 class="text-center mt-4 mb-4">The current events are:</h4>
+      <div class="list-group m-4 justify-content-between">
+          <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Event n°</h5>
+          </div>
+          <p class="mb-1">Title</p>
+          <small>Host</small>
+        </a>
+      </div>
+  </section>
