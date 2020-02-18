@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <br><br><br>
-      <%= form_for(:user, :url => edit_user_path(:user), html: { class: "form-signin mt-3" }) do |f| %>
+      <%= form_for(:user, :url => user_path, method: "patch", html: { class: "form-signin mt-3" }) do |f| %>
         <h1 class="h3 mb-3 font-weight-normal text-center">Edit your account information:</h1>
         <% if @user.errors.any? %>
         <p class="alert alert-danger d-flex justify-content-center" role="alert"">The following error(s) ocurred:

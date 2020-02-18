@@ -2,20 +2,29 @@
   <div class="container text-center mt-0">
       <h1 class="display-5 text-light mt-4 mb-4">Discover our new events in Paris</h1>
       <p class="lead text-light">Find new projects to blossom your talents</p>
-      <button type ="button" class="btn btn-primary my-2 my-sm-0">New projects</button>
-      <button type="button" class="btn btn-secondary">Trendy topics</button>
+      <button type ="button" class="btn btn-dark my-2 my-sm-0 mr-3">New events</button>
     </div>
 </div>
 
-
- <section class="container mt-4 mb-4">
-      <h4 class="text-center mt-4 mb-4">The current events are:</h4>
-      <div class="list-group m-4 justify-content-between">
-          <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Event n°</h5>
-          </div>
-          <p class="mb-1">Title</p>
-          <small>Host</small>
-        </a>
-      </div>
+  <section class="container">
+    <h2 class="text-center mt-4 mb-4">The current events are:</h2>
+    <div class="card-deck mb-3 d-flex justify-content-between">
+      <% @events.sort_by(&:created_at).each do |event| %>
+        <div class="col-md-4 mt-4">
+          <div class="card d-flex justify-content-center">
+            <a href="<%= event_path(event.id) %>" class="list-group-item list-group-item-action m-0 p-0">
+            <div class="rounded mx-auto d-block">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80" class="card-img-top" alt="coworkers">
+            </div>
+            <div class="card-body text-center">
+              <h3 class="card-title"><%= event.title %></h3>
+              <p class="card-text"><%= event.description %></p>
+              <small>Host: <%= event.admin_name %></small>   
+            </div>
+            </a>
+          </div>  
+        </div>  
+      <% end %>
+    </div>
   </section>
+

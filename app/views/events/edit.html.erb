@@ -1,0 +1,43 @@
+<h2 class="h1 mt-3 mb-4 ml-3 text-center">Edit your event here:</h2>
+  <div class="container mt-5 form-group">
+    <%= form_tag url_for(action: 'update'), method: "patch" do %>
+    <h1 class="h3 mb-3 font-weight-normal text-center">Event details</h1>
+    <% if @event.errors.any? %>
+    <p class="alert alert-danger d-flex justify-content-center" role="alert"">The following error(s) ocurred:
+      <% @event.errors.full_messages.each do |message| %>
+        <%= message %></p>
+      <% end %>
+    <p>Correct the form</p>
+  <% end %>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="form-group">
+  <%= label_tag 'Title:' %>
+  <%= text_field_tag :title, @event.title, class:'form-control' %>
+  </div>    
+  <div class="form-group">
+  <%= label_tag 'Location:' %>
+  <%= text_field_tag :location, @event.location, class:'form-control' %>
+  </div>    
+  <div class="form-group">
+    <%= label_tag 'Start date:' %>
+    <%= date_field_tag :start_date, @event.start_date, class:'form-control' %>
+  </div> 
+  <div class="form-group">
+    <%= label_tag 'Duration:' %>
+    <%= number_field_tag :duration, @event.duration, class:'form-control' %>
+  </div> 
+  <div class="form-group">
+    <%= label_tag 'Price:' %>
+    <%= number_field_tag :price, @event.price, class:'form-control' %>
+  </div> 
+  <div class="form-group">
+    <%= label_tag 'Description:' %>
+    <%= text_area_tag :description, @event.description, class:'form-control' %>
+    </div> 
+  <div class="actions mt-4 mb-3">
+  <%= submit_tag "Save your edits", class:"btn btn-lg btn-dark btn-block"%>
+</div>
+<% end %>
+</div>
+
+if @event.update(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location])

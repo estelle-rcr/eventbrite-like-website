@@ -1,0 +1,36 @@
+
+<h1 class="h1 mt-4 mb-4 ml-3 text-center">Event: <%= @event.title %></h1>
+<div class="container d-flex justify-content-center m-5">
+<img src="https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=536&q=80" class="card-img-left" alt="Working group">
+  <div class="card-deck mb-3 ml-4 d-flex flex-column" style="width: 36rem; height: 16rem">
+      <div class="card mx-4">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h3 class="card-title">The event details:</h3>
+          <h6 class="card-subtitle mb-3 text-muted">Attendees: <%= @attendances.count %></h6>
+          <h6 class="card-text mb-4">Start: <%= @event.start_date %></h6>
+          <h6 class="card-text mb-4">End: <%= @event.end_date %></h6>
+          <h6 class="card-text mb-4">Duration: <%= @event.duration%> min</h6>
+        </div>
+      </div>
+      <div class="card mx-4">
+        <div class="card-body d-flex flex-column justify-content-center">
+        <p class="text-muted"> Hosted by <%= @event.admin_name %></p>
+        <p class="text-muted"> Contact: <%= @event.admin_email %></p>
+        <br />
+        <p><%= @event.description %></p>
+        <strong>Price: <%= @event.price%>€ </strong>
+      </div>
+    </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="d-flex justify-content-center">
+  <% if @event.event_admin == current_user %>
+      <p class="lead mt-3 mb-4 ml-3 text-center"><%= link_to "Edit this event", edit_event_path(@event.id), :class => "btn btn-outline-dark" %></p>
+      <p class="lead mt-3 mb-4 ml-3 text-center"><%= link_to "Delete permanently", event_path(@event.id), :class => 'btn btn-outline-danger', data: {confirm: 'Do you confirm you want to permanently delete your event?'}, method:"DELETE"%></p>
+  <% end %>
+      <p class="lead mt-3 mb-4 ml-3 text-center"><%= link_to "Return to homepage", root_path, :class => 'btn btn-dark' %></p>
+  </div>
+  <br>
+
