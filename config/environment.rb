@@ -19,5 +19,6 @@ ActionMailer::Base.smtp_settings =   {
     :domain             => 'gmail.com', #you can also use google.com
     :authentication     => :plain,
     :user_name          => ENV['GMAIL_LOGIN'],
-    :password           => ENV['GMAIL_PWD']
+    :password           => ENV['GMAIL_PWD'],
+    :from               => ENV['MAIL']
   }
