@@ -14,11 +14,12 @@ Rails.application.initialize!
 #}
 
 ActionMailer::Base.smtp_settings =   {
-    :address            => 'smtp.gmail.com',
+    :address            => 'in-v3.mailjet.com',
     :port               => 587,
-    :domain             => 'gmail.com', #you can also use google.com
+    :domain             => 'herokuapp.com',
     :authentication     => :plain,
-    :user_name          => ENV['GMAIL_LOGIN'],
-    :password           => ENV['GMAIL_PWD'],
-    :from               => ENV['GMAIL_LOGIN']
+    :user_name          => ENV['MAILJET_LOGIN'],
+    :password           => ENV['MAILJET_PWD'],
+    :from               => ENV['MAIL'],
+    :enable_starttls_auto => true
   }
