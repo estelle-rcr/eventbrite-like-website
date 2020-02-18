@@ -93,5 +93,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
     # set up the host for email:
-    config.action_mailer.default_url_options = { :host => 'side-events.herokuapp.com' }
+    config.action_mailer.default_url_options = { :host => 'side-events.herokuapp.com', port: 587 }
 end

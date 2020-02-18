@@ -11,5 +11,4 @@ ActionMailer::Base.smtp_settings = {
   :address => 'in-v3.mailjet.com',
   :port => 587,
   :authentication => :plain,
-  :enable_starttls_auto => true
 }
