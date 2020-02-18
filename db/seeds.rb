@@ -21,7 +21,7 @@ end
     last_name: Faker::Name.unique.last_name,
     description: Faker::Lorem.paragraph_by_chars(number: 156, supplemental: true),
     email: "estelle-r-#{index}@yopmail.com", 
-    encrypted_password: Faker::Code.asin,
+    password: Faker::Code.asin,
     )
 end
 
