@@ -1,6 +1,6 @@
 require 'dotenv-rails'
 class UserMailer < ApplicationMailer
-  default from: 'estella94@hotmail.fr'
+  default from: 'MAILJET_LOGIN'
  
   def welcome_email(user)
     @user = user 
