@@ -1,3 +1,4 @@
+require 'dotenv-rails'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -93,5 +94,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
     # set up the host for email:
+    config.action_mailer.delivery_method = :smtp
     config.action_mailer.default_url_options = { :host => 'side-events.herokuapp.com', port: 587 }
-end
+    config.action_mailer.default_options = { from: ENV['MAIL'] }
+    config.action_mailer.perform_deliveries = true
+  end
