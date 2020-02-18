@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+      <%= form_for(:user, :url => edit_user_path(:user), html: { class: "form-signin mt-3" }) do |f| %>
+        <h1 class="h3 mb-3 font-weight-normal text-center">Edit your account information:</h1>
+        <% if @user.errors.any? %>
+        <p class="alert alert-danger d-flex justify-content-center" role="alert"">The following error(s) ocurred:
+        <% @user.errors.full_messages.each do |message| %>
+          <%= message %></p>
+        <% end %>
+          <p>Re-send the form with the right informations</p>
+        <% end %>
+        <div class="form-group">
+          <%= f.label :first_name, "Firstname" %><br />
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "your firstname", class: "form-control" %>
+        </div>      
+        <div class="form-group">
+          <%= f.label :last_name, "Lastname" %><br />
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "your lastname", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description, "Description" %><br />
+          <%= f.text_area :description, autofocus: true, autocomplete: "your description", class: "form-control" %>
+        </div>
+        <div class="actions mt-5">
+          <%= f.submit "Update my info", class: "btn btn-lg btn-dark btn-block" %>
+          <%= link_to "Back", :back, :class => "btn btn-dark" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

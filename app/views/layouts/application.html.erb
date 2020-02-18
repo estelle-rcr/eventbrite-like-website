@@ -48,8 +48,8 @@
             My account
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "My profile", user_path(current_user.id), :class => 'btn btn-outline-danger', data: {confirm: 'Do you confirm you want to log out?'}, method:"DELETE"%>
-            <%= link_to "Log out", destroy_user_session_path(current_user.id), :class => 'btn btn-outline-danger', data: {confirm: 'Do you confirm you want to log out?'}, method:"DELETE"%>
+            <%= link_to "My profile", user_path(current_user.id), :class => 'dropdown-item' %>
+            <%= link_to "Log out", destroy_user_session_path, :class => 'dropdown-item', data: {confirm: 'Do you confirm you want to log out?'}, method:"DELETE"%>
           </div>
         </li>
         <% else %>
