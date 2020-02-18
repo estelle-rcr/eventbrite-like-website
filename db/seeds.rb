@@ -15,7 +15,7 @@ ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
-30.times do |index|
+5.times do |index|
   User.create!(
     first_name: Faker::Name.unique.first_name,
     last_name: Faker::Name.unique.last_name,
@@ -30,7 +30,7 @@ end
     start_date: Date.today+rand(10000),
     duration: rand(5..1440).round(-1),
     title: Faker::Book.title,
-    description: Faker::ChuckNorris.unique.fact, 
+    description: Faker::Hipster.sentence(word_count: 20, supplemental: true), 
     price: rand(1..1000),
     location: Faker::Address.city,
     admin: User.all.sample
