@@ -16,18 +16,65 @@
       }
     .jumbotron {
         height: 500px;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.239),rgba(0, 0, 0, 0.239)),url("https://images.unsplash.com/photo-1581090698407-7d93959da202?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
-        background-color: rgba(10,10,10,0.4), transparent;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.339),rgba(0, 0, 0, 0.339)),url("https://images.unsplash.com/photo-1581090698407-7d93959da202?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
         background-repeat: no-repeat;
-        z-index: -10; 
         }
     </style>  
   </head>
 
   <body>
+  <!-- Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-0">
+    <%= link_to "Side Events", root_path, :class => "navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active mr-4">
+        <%= link_to "Home", root_path, :class => "nav-link"%>
+      </li>
+      <li class="nav-item active mr-4">
+        <%= link_to "Create an event", new_event_path, :class => "nav-link"%>
+      </li>
+    </ul>
+    <ul class="nav justify-content-end">
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown mr-4">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "My profile", user_path(current_user.id), :class => 'btn btn-outline-danger', data: {confirm: 'Do you confirm you want to log out?'}, method:"DELETE"%>
+            <%= link_to "Log out", destroy_user_session_path(current_user.id), :class => 'btn btn-outline-danger', data: {confirm: 'Do you confirm you want to log out?'}, method:"DELETE"%>
+          </div>
+        </li>
+        <% else %>
+        <li class="nav-item dropdown mr-4">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Create an account / log in
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Sign up", new_user_registration_path, :class => 'dropdown-item' %>
+            <%= link_to "Log in", new_user_session_path, :class => 'dropdown-item' %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  </nav>
+    <container class="container-fluid d-flex justify-content-center row mb-0 pb-0">
+      <% if flash[:success] %>
+        <p class="container alert alert-success d-flex justify-content-center col-12 mb-0 mr-0" role="alert"><%= flash[:success] %></p>
+      <% elsif flash[:notice] %>
+        <p class="container alert alert-info d-flex justify-content-center col-12 mb-0 mr-0" role="alert"><%= flash[:notice] %></p>
+      <% elsif flash[:danger] %>
+      <p class="container alert alert-danger d-flex justify-content-center col-12 mb-0 mr-0" role="alert"><%= flash[:danger] %></p>
+      <% end %>
+    </container>
     <%= yield %>
   </body>
 </html>

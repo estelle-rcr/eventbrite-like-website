@@ -75,3 +75,4 @@ gem 'faker'
 # Set up dotenv for private API keys
 gem 'dotenv-rails'
 
+gem 'devise'
