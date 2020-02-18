@@ -1,6 +1,6 @@
 require 'dotenv-rails'
 class UserMailer < ApplicationMailer
-  default from: 'ENV['MAIL']'
+  default from: 'estelle.recuero@gmail.com'
  
   def welcome_email(user)
     @user = user 
