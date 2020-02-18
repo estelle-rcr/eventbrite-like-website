@@ -1,3 +1,4 @@
+require 'dotenv-rails'
 class UserMailer < ApplicationMailer
   default from: ENV['MAIL']
  
