@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  after_create :welcome_send
+  #after_create :welcome_send
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :attendances, foreign_key: 'attendee_id', class_name: "Attendance"
   has_many :events, through: :attendances
 
-  def welcome_send
-    UserMailer.welcome_email(self).deliver_now
-  end
+  #def welcome_send
+    #UserMailer.welcome_email(self).deliver_now
+  #end
 end

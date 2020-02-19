@@ -27,7 +27,7 @@ end
 
 15.times do |index|
   Event.create!(
-    start_date: Date.today+rand(10000),
+    start_date: Faker::Date.forward(120),
     duration: rand(5..1440).round(-1),
     title: Faker::Book.title,
     description: Faker::Hipster.sentence(word_count: 20, supplemental: true), 

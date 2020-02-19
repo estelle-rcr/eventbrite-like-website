@@ -9,7 +9,7 @@
   <section class="container">
     <h2 class="text-center mt-4 mb-4">The current events are:</h2>
     <div class="card-deck mb-3 d-flex justify-content-between">
-      <% @events.sort_by(&:created_at).each do |event| %>
+      <% @events.sort_by(&:start_date).each do |event| %>
         <div class="col-md-4 mt-4">
           <div class="card d-flex justify-content-center">
             <a href="<%= event_path(event.id) %>" class="list-group-item list-group-item-action m-0 p-0">
@@ -19,6 +19,7 @@
             <div class="card-body text-center">
               <h3 class="card-title"><%= event.title %></h3>
               <p class="card-text"><%= event.description %></p>
+              <p class="text-muted"><%= event.start_date %></p>
               <small>Host: <%= event.admin_name %></small>   
             </div>
             </a>
